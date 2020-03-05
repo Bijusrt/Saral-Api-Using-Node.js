@@ -8,6 +8,16 @@ app.use(express.json());
 
 app.use(express.text());
 
+app.get('/complete',(req,res)=>{
+
+    const read = fs.readFileSync('availableCourses.json');
+
+    const convert = JSON.parse(read);
+
+    res.send(convert);
+
+})
+
 app.get('/',(req,res)=>{
     
     const read = fs.readFileSync('availableCourses.json');
